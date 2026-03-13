@@ -100,6 +100,8 @@ app.use((req,res,next)=>{
   next();
 });
 
+console.log(process.env.ATLASDB_URL);
+
 // //demo for passport 
 // app.get("/demouser",async(req,res)=>{
 //   let fakeUser=new User({
