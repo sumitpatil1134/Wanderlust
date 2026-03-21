@@ -13,7 +13,6 @@ const upload = multer({ storage });
 
 router.route("/")
 .get(
-  validateListing,
   wrapAsync(listingController.index)
 )
 .post(
@@ -44,7 +43,7 @@ router.route("/:id")
 
 // ================== EDIT ==================
 router.get(
-  "/:id/edit",validateListing,isLoggedIn,isOwner,
+  "/:id/edit",isLoggedIn,isOwner,
   wrapAsync(listingController.renderEditForm)
 );
 

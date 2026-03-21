@@ -49,10 +49,6 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
 
-// ================== Home ==================
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
 const store=MongoStore.create({
   mongoUrl:dbUrl,
   crypto:{
@@ -99,6 +95,11 @@ app.use((req,res,next)=>{
   res.locals.currUser=req.user;
   next();
 });
+
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 
 console.log(process.env.ATLASDB_URL);
 
